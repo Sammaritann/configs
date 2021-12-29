@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# @brief Configs repository path
+#
+# Sets environment variables that are used by scripts and tools
+
+# github.com/BuzReps/configs repo location
+export MY_CONFIGS_DIR=~/repos/configs
+
+# github.com/BuzReps/templates repo location
+export MY_TEMPLATES_DIR=~/repos/templates
+

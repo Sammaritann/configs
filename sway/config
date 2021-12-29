@@ -1,0 +1,284 @@
+### Variables
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $alt_left h
+set $alt_down j
+set $alt_up k
+set $alt_right l
+# Your preferred terminal emulator
+set $term alacritty
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+#set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu "rofi -modi drun,run -show drun"
+
+# Font for window titles
+# Will also be used by the bar unless a different font is used in the bar block
+font pango:IosevkaTerm Nerd Font 10
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+q kill
+
+    # Start your launcher
+    bindsym $mod+o exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+    # move tiling windows via drag & drop by left-clicking into the title bar,
+    # or left-clicking anywhere into the window while holding the floating modifier.
+    tiling_drag titlebar
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+    # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+    bindsym $mod+Shift+r restart
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+
+    # Alternatively, you can use the cursor keys
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+
+    # Alternatively, you can use the cursor keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # Define names for default workspaces for which we configure key bindings later on.
+    # We use variables to avoid repeating the names in multiple places.
+    set $ws1 "1"
+    set $ws2 "2"
+    set $ws3 "3"
+    set $ws4 "4"
+    set $ws5 "5"
+    set $ws6 "6"
+    set $ws7 "7"
+    set $ws8 "8"
+    set $ws9 "9"
+    set $ws10 "10"
+
+    # Switch to workspace
+    bindsym $mod+1 workspace number $ws1
+    bindsym $mod+2 workspace number $ws2
+    bindsym $mod+3 workspace number $ws3
+    bindsym $mod+4 workspace number $ws4
+    bindsym $mod+5 workspace number $ws5
+    bindsym $mod+6 workspace number $ws6
+    bindsym $mod+7 workspace number $ws7
+    bindsym $mod+8 workspace number $ws8
+    bindsym $mod+9 workspace number $ws9
+    bindsym $mod+0 workspace number $ws10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number $ws1; workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace number $ws2; workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace number $ws3; workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace number $ws4; workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace number $ws5; workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace number $ws6; workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace number $ws7; workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace number $ws8; workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace number $ws9; workspace $ws9
+    bindsym $mod+Shift+0 move container to workspace number $ws10; workspace $ws10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+Shift+apostrophe splith
+    bindsym $mod+apostrophe splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+t floating toggle; [floating] border normal 3; [tiling] border pixel 1
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+    # focus the child container
+    #bindsym $mod+d focus child
+
+#
+# Resizing containers:
+#
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+include ~/.config/sway/theme_2
+
+# <border> - only the top line. useless. should match background
+#                       <border>           <background>       <text>            <indicator>        <child_border>
+client.focused          $highlight_color   $highlight_color   $background_color $highlight_color   $highlight_color
+client.focused_inactive $inact_highl_color $inact_highl_color $inact_text_color $inact_highl_color $inact_highl_color
+client.unfocused        $background_color  $background_color  $inact_text_color $background_color  $background_color
+client.urgent           $urgent_color      $urgent_color      $background_color $urgent_color      $urgent_color
+client.background       $background_color
+
+default_border pixel 1
+# Applied only for windows that are *started* as floating
+default_floating_border normal 3
+hide_edge_borders smart_no_gaps
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    id 0
+    position bottom
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while ~/.config/sway/status.sh; do sleep 1; done
+
+    colors {
+        #background #323232
+        background $background_color
+        statusline $highlight_color
+        #separator  #FF0000
+        #focused_background #000000
+        #focused_statusline #F1C40F
+        #focused_separator  #32323200
+        # <border> <background> <text>
+        # active on current
+        focused_workspace    $background_color $highlight_color $background_color
+        # active on another monitor
+        active_workspace     $highlight_color $background_color $highlight_color
+        # invactive both on current and another monitor
+        inactive_workspace   $background_color $background_color $highlight_color
+        #urgent_workspace   #32323200 #000000 #5c5c5c
+        #binding_mode       #32323200 #000000 #5c5c5c
+    }
+}
+
+input "type:keyboard" {
+    xkb_layout us,ru
+    xkb_options caps:super,grp:ctrl_space_toggle
+    repeat_delay 200
+    repeat_rate 30
+}
+
+focus_follows_mouse no
+mouse_warping none
+
+# Screenshots
+# https://github.com/ammen99/wf-recorder/issues/24
+bindsym Print exec "slurp | grim -g - - | wl-copy"
+bindsym Shift+Print exec \
+    EXTENSION="mp4" && \
+    FILEPATH="/home/vladislav/Videos/screencapture/recording_$(date +%Y-%m-%d_%H:%M:%S)" && \
+    FILE="${FILEPATH}.${EXTENSION}" && \
+    FILE_WITH_SOUND="${FILEPATH}_sound.${EXTENSION}" && \
+    wf-recorder -g "$(slurp)" -f "${FILE}" && \
+    ffmpeg -f lavfi -i aevalsrc=0 -i "${FILE}" -c:v copy -c:a aac -map 0 -map 1:v -shortest "${FILE_WITH_SOUND}" && \
+    wl-copy -t text/uri-list <<< "file://${FILE_WITH_SOUND}"
+bindsym Ctrl+Shift+Print exec "killall -s SIGINT wf-recorder"
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_statusbar killall -SIGUSR1 i3_bar
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_statusbar
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_statusbar
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_statusbar
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_statusbar
+
+set $left_monitor 'Samsung Electric Company S24R35x H4TR700337'
+set $center_monitor 'Samsung Electric Company S24R35x H4TR700211'
+set $right_monitor 'LG Electronics LG FULL HD '
+
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+output $left_monitor pos 0 420 res 1920x1080@75Hz
+output $center_monitor pos 1920 420 res 1920x1080@75Hz
+output $right_monitor pos 3840 0 res 1920x1080@75Hz
+output $right_monitor transform 90
+
+workspace $ws1 output $left_monitor
+workspace $ws2 output $center_monitor
+workspace $ws3 output $right_monitor
+
+include /etc/sway/config.d/*
+include ~/.config/sway/config.d/*
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+

@@ -1,0 +1,29 @@
+[user]
+	name = Vladislav Buzun
+	email = vladislav.buzun@gmail.com
+
+[gui]
+	encoding = utf-8
+	tabsize = 4
+
+[diff]
+	tool = nvimdiff
+	wsErrorHighlight = all
+
+[difftool]
+	prompt = true
+
+[core]
+	editor = nvim
+	quotepath = off
+	symlinks = true
+
+[color "diff"]
+	meta = "#000000 yellow"
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[init]
+	defaultBranch = master
+

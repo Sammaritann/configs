@@ -1,0 +1,6 @@
+for_window [title="My OpenGL"] floating enable, border normal 3
+for_window [title="SpeedCrunch"] floating enable, border normal 3
+for_window [title="Huion Tablet"] floating enable, border normal 3
+for_window [title="Thunar"] floating enable, border normal 3
+for_window [title="Seer Debugger"] move to workspace number $ws1
+

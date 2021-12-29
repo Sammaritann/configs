@@ -1,0 +1,6 @@
+set $background_color  #0c0c16
+set $highlight_color   #F1C40F
+set $inact_highl_color $background_color
+set $inact_text_color  #f8f8f2
+set $urgent_color      #ff9580
+

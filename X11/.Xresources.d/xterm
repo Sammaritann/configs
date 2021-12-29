@@ -1,0 +1,14 @@
+! See guide: https://wiki.archlinux.org/title/Xterm#Configuration
+! See example: https://gist.github.com/taviso/a4543b1752fba55017e8fcc2fe052c0a
+XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.scrollBar: false
+XTerm.vt100.faceName: Iosevka Term:size=12:antialias=true
+XTerm.vt100.renderFont: true
+XTerm.vt100.selectToClipboard: true
+XTerm*vt100.background: #212121
+XTerm*vt100.foreground: #80FF80
+XTerm*cursorBlink: true
+XTerm*vt100.translations: #override \
+    Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+    Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
+
