@@ -50,19 +50,19 @@ if [ ! -e ~/.bash_local ]; then
 else
 	echo ${COLOR_WARNING}"[ ] Found existing ~/.bash_local. Check default bash/.bash_local for missing variables!"${COLOR_END}
 fi
-create_link gdb/.gdbinit ~/
-create_link gdb/.gdbearlyinit ~/
+# create_link gdb/.gdbinit ~/
+# create_link gdb/.gdbearlyinit ~/
 create_link git/.gitconfig ~/
-create_link i3 ~/.config/
-create_link sway ~/.config/
+# create_link i3 ~/.config/
+# create_link sway ~/.config/
 create_link nvim ~/.config/
 # Why hardlink? See redshift/README.md
 create_link redshift/redshift.conf ~/.config/ hard
-create_link gammastep ~/.config/
+# create_link gammastep ~/.config/
 create_link terminal-colors.d ~/.config/
 create_link tmux/.tmux.conf ~/
-create_link X11/.Xresources ~/
-create_link X11/.xsession ~/
+# create_link X11/.Xresources ~/
+# create_link X11/.xsession ~/
 create_link X11/.xprofile ~/
-create_link X11/.Xresources.d ~/
+# create_link X11/.Xresources.d ~/
 

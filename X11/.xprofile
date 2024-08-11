@@ -1,9 +1,8 @@
 #!/bin/sh
 
 setxkbmap -layout us,ru
-setxkbmap -option 'grp:ctrl_space_toggle'
 # 'CAPS' key duplicates 'Win'
-setxkbmap -option 'caps:super'
+setxkbmap -option 'caps:super,grp:super_space_toggle'
 
 # Keyboard key repeat delay in ms and repeats per second
 xset r rate 200 30

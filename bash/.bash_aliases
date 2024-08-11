@@ -12,6 +12,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias info='info --vi-keys'
 alias tree='tree -a --dirsfirst -I .git'
+alias pacman='pacman --color=auto'
 alias ls="$LS_COMMAND --color=auto --group-directories-first -A --sort=extension -h"
 alias ll="$LS_COMMAND --color=auto --group-directories-first -A --sort=extension -h -l"
 

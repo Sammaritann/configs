@@ -9,7 +9,7 @@ live_config_reload = true
 # Alacritty snap package comes with libtinfo6.3 which is picked and rejected by tmux (it requres 6.4)
 # Removing predefined LD_LIBRARY_PATH exposes system-wide library first
 # Alternative solution: export LD_LIBRARY_PATH = "/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH"
-LD_LIBRARY_PATH = ""
+# LD_LIBRARY_PATH = ""
 
 [font]
 size = 10.0
