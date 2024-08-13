@@ -7,3 +7,5 @@
     * [firefox/README.md](firefox/README.md)
     * [git/README.md](git/README.md)
 
+
+Хули ты удалилися везде ?
